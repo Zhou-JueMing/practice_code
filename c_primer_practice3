@@ -1,0 +1,80 @@
+3.47  复数和虚数
+包括三种复数类型 即float_complex,double_complex and long double_complex
+3种虚数则是将imaginary替换complex即可
+如果包含<complex.h>的头文件，可以用complex代替_complex,用imaginary代替_imaginary.
+
+3.7 转义序列示意
+escape.c--使用转义序列
+#include<stdio.h>
+int main(void)
+{
+	float salary;
+
+	printf("\aEnter your desired monthly salary:");
+	printf("$______\b\b\b\b\b\b\b");
+	scanf("%f,", &salary);
+	printf("\n\t$%.2f a month is $%.2f a year.", salary, salary * 12);
+	printf("\rGee\n");
+	return 0;
+}
+3.11 coding_peactice
+#include<stdio.h>
+int main(void)
+{
+	long long big = 9e100 * 10;
+	printf("%d\n",big);
+
+
+	double toobig = 2.345678e10*10.0f;
+	printf("%f\n", toobig);
+
+	long double toosmall = 0.1234e-20 / 10;
+	printf("%f\n", toosmall);
+	return 0;
+}
+输入字母输出ASCII 码
+#include<stdio.h>
+int main(void)
+{
+	int ch;
+	printf("please enter a ASCII number\n");
+	scanf("%d", &ch);
+printf("The character is %c\n", ch);
+	return 0;
+
+}
+#include<stdio.h>
+int main(void)
+{
+	printf("\axx\n");
+	return 0;
+}
+#include<stdio.h>
+int main(void)
+{
+	float ch;
+	printf("Enter a floating number:");
+	scanf("%f", &ch);
+	printf("fixed-point notation:%Le\n", ch);
+	printf("exponential notation:%e\n", ch);
+	printf("p notation:%a\n", ch);
+	return 0;
+}
+#include<stdio.h>
+int main(void)
+{
+	char year;
+	printf("please enter your ages:\n");
+	scanf("%c", &year);
+	printf("your ages in seconds is %d", year*3.156e7);
+	return 0;
+}
+#include<stdio.h>
+int main(void)
+{
+	float quart;
+	printf("please enter how many the quart is:\n");
+	scanf("%f", &quart);
+	printf("the molecules of water is %Lf\n",quart/950/3.0e-23);
+	return 0;
+}
