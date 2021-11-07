@@ -1,0 +1,90 @@
+//basc.c 用十进制、八进制、十六进制打印
+int main(void)
+{ int x = 100;
+printf("dec=%d;octal=%o;hex=%x\n", x, x, x);
+printf("dec=%d;octal=%#o;hex=%#x\n", x, x, x);
+return 0;
+}
+
+打印转义序列
+#include<stdio.h>
+int main(void)
+{char nerf =' \n';
+printf("%c",nerf);
+return 0; }
+
+charcode.c
+#include<stdio.h>
+int main(void)
+{
+	char ch;
+
+	printf("please enter a character.\n");
+	scanf("%c", &ch);
+	printf("the code for %c is %d.\n", ch, ch);
+	return 0;
+}
+//fathoms_feet.c-把2英寻转换成为英尺 
+#include <stdio.h> 
+void butler(void);
+int main(void)
+{
+	/*int feet, fathoms;
+
+	fathoms = 2;
+	feet = 6 * fathoms;
+	printf("there are %d feet in %d fathoms!\n", feet, fathoms);
+	printf("yes,i said %d feet!\n",  feet);*/
+
+	printf("i will summon the butler function.\n");
+	butler();
+	printf("bring me some tea and writeable dvds.\n");
+	return 0;
+}
+void butler(void)
+
+{	printf("you rang,sir?\n"); }
+nogood.c--有错误的程序
+#include<stdio.h>
+int main(void)
+{
+	int n, n2, n3;
+	n = 5;
+	n2 = n*n;
+	n3 = n2*n;
+	printf("when n is %d,n squard=%d,n cubed=%d\n", n, n2, n3);
+	return 0;
+
+}
+#include<stdio.h>
+#define DAYS_PER_YEAR 365
+int main()
+{
+	/*int n, n1;
+	n = 19;
+	n1 = n * 365;
+		printf("my age is %d years and %d days\n", n, n1);*/
+	int days, ages;
+	ages = 19;
+	days = ages*DAYS_PER_YEAR;
+		printf("your age is %d,and it is %d days\n", ages, days);
+	return 0;
+}
+platinum.c--your weight is platinum 
+#include<stdio.h>
+int main(main)
+{
+	float weight;
+	float value;
+	printf("Are you worth your weight in platinum?\n");
+	printf("let's check it out.\n");
+	printf("please enter your weight in pounds:");
+
+		scanf("%f", &weight);
+	value = 1700.0*weight*14.5833;
+	printf("your weight in platinum is worth $%.4f.\n",value);
+	printf("you are easily worth that!If platinum prices drop,\n");
+	printf("eat more to manitain your value.\n");
+	return 0;
+
+} 
