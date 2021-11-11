@@ -1,0 +1,123 @@
+#include<stdio.h>
+#include<string.h>
+#define DENSITY 62.4
+int main()
+{
+	float volume, weight;
+	int size,letters;
+	char name[40];
+	printf("hi,wuat's your first name?\n");
+	scanf("%s", name);
+	printf("%s,what'your weight in pounds?\n", name);
+	scanf("%f", &weight);
+	size = sizeof(name);
+	letters = strlen(name);
+	volume = weight / DENSITY;
+	printf("well,%s your volume is %2.2f cubic feet.\n",name,volume);
+	printf("also,your first name has %d letters.\n",letters);
+		printf("and we have %d bytes to store it.\n", size);
+	return 0;
+}
+//priase1.c 使用不同类型的字符串
+#include<stdio.h>
+#define PRAISE "you are an extrodinary being."
+int main(void)
+{
+	char name[40];
+	printf("what's your name ?");
+	scanf("%s", name);
+	printf("hello,%s. %s\n", name, PRAISE);
+	return 0;
+}
+#include<stdio.h>
+#include<string.h>
+#define PRAISE "you are an extrodinary being."
+int main(void)
+{
+	char name[40];
+	printf("what's your name? \n");
+	scanf("%s", name);
+	printf("hello,%s. %s\n", name, PRAISE);
+	printf("your name of %d letters occupies %d memory cells.\n",
+		strlen(name), sizeof name);
+	printf("the phrase of praise has %d letters", strlen(PRAISE));
+	printf("and occupies %d memory cells.\n", sizeof PRAISE);
+
+	return 0;
+}
+
+
+pizza.c,在该程序中使用已经定义的变量
+#include<stdio.h>
+#define PI 3.14159
+int main(void)
+{
+	float area, circum, radious;
+	printf("what is the radious of your pizza?\n");
+	scanf("%f", &radious);
+	area = PI*radious*radious;
+	circum = 2.0*PI*radious;
+	printf("your basic pizza parameters are as follows:\n");
+	printf("circumference=%1.2f,area=%1.2f\n", circum, area);
+	return 0;
+  printout.c--使用转换说明
+#include<stdio.h>
+#define PI 3.141593
+int main(void)
+{
+	int number = 7;
+	float pies = 12.75;
+	int cost = 7800;
+	printf("the %d contestants are %f berry pies.\n", number, pies);
+	printf("the value of pi %f.\n", PI);
+		printf("farewelll! thou art too dear for my possessing,\n");
+	printf("%c%d\n", '$', 2 * cost);
+	return 0;
+}
+使用修饰符和标记符的实例
+width.c--字段宽度
+#include<stdio.h>
+#define PAGES 999
+int main(void)
+{
+	printf("*%d*\n", PAGES);
+	printf("*%2d*\n", PAGES);
+	printf("*%10d*\n", PAGES);
+	printf("*%-10d*\n", PAGES);
+	return 0;
+}
+float.c--一些修饰符的组合
+#include<stdio.h>
+int main(void)
+{
+	const double RENT = 3852.99;
+	printf("*%f*\n", RENT);
+	printf("*%e*\n", RENT);
+	printf("*%3.1f*\n", RENT);
+	printf("*%10.3f\n", RENT);
+	printf("*%10.3E*\n", RENT);
+	printf("*%+4.2f*\n", RENT);
+	printf("*%010.2f*\n", RENT);
+	return 0;
+}
+
+flag.c--演示一些格式标记
+#include<stdio.h>
+int main(void)
+{
+	printf("%x %X %#x\n", 31, 31, 31);
+	printf("**%d**% d**\n", 42, 42, -42);
+	printf("**%5d**%5.3d**%05d**%05.3d**\n", 6, 6, 6, 6);
+	return 0;
+}
+stringf.c--字符串格式
+#include<stdio.h>
+#define BLURB "Authentic imitation!"
+int main(void)
+{
+	printf("[%2s]\n", BLURB);
+	printf("[%24s]\n", BLURB);
+	printf("[%24.5s]\n", BLURB);
+	printf("[%-24.5s]\n", BLURB);
+	return 0;
+}
