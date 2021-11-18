@@ -1,0 +1,140 @@
+#define _CRT_SECURE_NO_WARNINGS 
+skiptwo.c--跳过输入中的前两个整数
+#include<stdio.h>
+int main(void)
+{
+	int n;
+
+	printf("please enter three integers:\n");
+	scanf("%*d %*d %d", &n);
+	printf("the last integer was %d\n", n);
+
+	return 0; 
+}
+#include<stdio.h>
+#include<string.h>
+#define DENSITY 62.4
+int main()
+{
+	float volume, weight;
+	int size, letters;
+	char name[40];
+	printf("hi,wuat's your first name?\n");
+	scanf("%s", name);
+	printf("%s,what'your weight in pounds?\n", name);
+	scanf("%f", &weight);
+	size = sizeof(name);
+	letters = strlen(name);
+	volume = weight / DENSITY;
+	printf("well,%s your volume is %2.2f cubic feet.\n", name, volume);
+	printf("also,your first name has %d letters.\n", letters);
+	printf("and we have %d bytes to store it.\n", size);
+	return 0;
+}
+c语言程序设计第四章练习题
+4.1
+#include<stdio.h>
+int main(void)
+{
+	char name[40];
+	char surname[40];
+	printf("enter input your first name:");
+	scanf("%s", name);
+	printf("please input your last name:");
+	scanf("%s", surname);
+	printf("hello,%s,%s.", name, surname);
+	return 0;
+}
+4.2
+#include<stdio.h>
+int main(void)
+{
+	char name[40];
+	int width;
+	printf("please input your name:");
+	scanf("%s", name);
+	width = printf("\%s\"\n.", name);
+		width = strlen(name);
+		printf("\"%20s\".\n",name);
+		printf("\"%-20s\".\n", name);
+		printf("\"%*s\".", (width + 3), name);
+		return 0;
+
+}
+#include<stdio.h>
+int main(void)
+{
+	float number;
+
+	printf("please input a number:\n");
+	scanf("%f",&number);
+	printf("The input is %.1f or %.1e\n", number,number);
+	printf("The input is %.3f or %.3e", number, number);
+	return 0;
+}//4.4
+#include<stdio.h>
+int main(void)
+{
+	char name[20];
+    float  tall;
+	printf("please input your height(inch):\n");
+	scanf("%f", &tall);
+	printf("please input your name:\n");
+	scanf("%s", name);
+	printf("%s,you are %.3f feet tall", name, tall/12.0);
+	return 0;
+
+}
+4.5
+#include<stdio.h>
+int main(void)
+{
+	float speed;
+	float large;
+	float time;
+	printf("please enter the large of document(MB):\n");
+	scanf("%f", &large);
+	printf("please enter your internet-speed:\n");
+	scanf("%f", &speed);
+	printf("At %.2f megabits per second,a file of %.2f megabytes\n", speed, large);
+	printf("downloads in %.2f seconds", 8*large / speed);
+	return 0;
+}
+#include<stdio.h>
+int main(void)
+{
+	char f_name[20],l_name[20];
+	int fn, ln;
+
+	printf("please enter your first name:\n");
+	scanf("%s", f_name);
+	printf("please enter your last name:\n");
+	scanf("%s", l_name);
+
+	fn = strlen(f_name);
+	ln = strlen(l_name);
+
+	printf("%s %s\n", f_name, l_name);
+	printf("%*d %*d\n", fn, fn, ln, ln);
+	printf("%s %s\n", f_name, l_name);
+	printf("%d %*d\n", fn, fn, ln);
+	return 0;
+//	
+
+}
+#include<stdio.h>
+#define callon_to_litre 3.785
+#define mile_to_km 1.609
+int main(void)
+{
+	float range, oil;
+	printf("please input the range you traveled(in mile）:");
+	scanf("%f",&range);
+	printf("pleast input the oil you speed(in gallon):");
+	scanf("%f",&oil);
+	printf("IN usa, your oil wear is %.1f M / G\n",range/oil);
+	printf("IN EUROPE,your oil wear is%.1fL/100KM", (oil*callon_to_litre) / (range*mile_to_km));
+	return 0;
+
+
+}
