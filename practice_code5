@@ -1,0 +1,42 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+shoes1.c--把鞋码转换成英寸
+#include<stdio.h>
+#define ADJUST 7.31
+int main(void)
+{
+	const double SCALE= 0.333;
+	double shoe, foot;
+
+	printf("shoe size(men's)    foot length\n");
+	shoe = 3.0;
+	while (shoe < 18.5)
+	{
+		foot = SCALE*shoe + ADJUST;
+		printf("%10.1f  %15.2f inches\n", shoe, foot);
+		shoe = shoe + 1.0;
+	}
+	printf("If the shoe fits,wear it.\n");
+
+	return 0;
+}
+golf.c--高尔夫锦标赛计分卡
+#include<stdio.h>
+int main(void)
+{
+	int jane, tarzan, cheeta;
+	cheeta = tarzan = jane = 68;
+	printf("             cheeta   tarzan   jane\n");
+	printf("First round score %4d  %8d %8d\n", cheeta, tarzan, jane);
+	return 0;
+}
+squares.c--计算1到100的平方
+#include<stdio.h>
+int main(void)
+{
+	int num = 1;
+
+	while (num < 100)
+	{ printf("%4d %6d\n", num, num*num);
+	num = num + 1; }
+	return 0;
+}
