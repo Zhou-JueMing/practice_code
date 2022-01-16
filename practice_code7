@@ -1,0 +1,151 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int main(void){
+	const int FREEZEING = 0;
+	float temperature;
+	int all_days = 0;
+	int cold_days = 0;
+
+	printf("Enter the list of daily low temperature:\n");
+	printf("use celsius,and enter q to quit.\n");
+	while (scanf("%f", &temperature) == 1){
+		all_days++;
+		if (temperature < FREEZEING)
+			cold_days++;
+	}
+	if (all_days != 0)
+		printf("%d days total:%.1f were below freezing.\n",
+		all_days, 1.00*(float)cold_days / all_days);
+	if (all_days == 0)
+		printf("No data entered!\n");
+	return 0;
+}
+cypher1.c--更改输入，空格不变
+#include<stdio.h>
+#define SPACE ' '
+int main(void){
+	char ch;
+	
+	ch = getchar();
+	while (ch != '\n'){
+		if (ch == SPACE)
+			putchar(ch);
+		else
+			putchar(ch + 1);
+		ch = getchar();
+	}
+	putchar(ch);
+	return 0;
+}
+//cypher2,c__替换输入的字母，非字母符号保持不变
+#include<stdio.h>
+#define SPACE ' '
+int main(void)
+{
+	char ch;
+
+	ch = getchar();
+	while (ch != '\n'){
+		if (ch == SPACE)
+			putchar(ch);
+		else
+			putchar(ch + 1);
+		ch = getchar();
+
+	}
+	putchar(ch);
+	return 0;
+}
+CYPHER2.c--替换输入的字母，非字母字符保持不变
+#include<stdio.h>
+#include<ctype.h>
+int main(void){
+	char ch;
+
+	while ((ch = getchar()) != '\n'){
+		if (isalpha(ch))
+			putchar(ch + 1);
+		else
+			putchar(ch);
+	}
+	putchar(ch);
+	return 0;
+}
+判断素数的算法
+#include<stdio.h>
+#include<stdbool.h>
+int main(void){
+	unsigned long long num;
+	unsigned long long div;
+	bool isprime;
+
+	printf("Please enter an integer for analysis;");
+	printf("Enter q to quit.\n");
+	while (scanf("%lu", &num) == 1){
+		for (div = 2, isprime = true; (div*div) <= num; div++)
+		{
+			if (num%div == 0){
+				if ((div*div) != num)
+					printf("%lu is divisible by %lu and %lu.\n", num, div, num / div);
+				else
+					printf("%lu is divisible by %lu.\n", num, div);
+				isprime = false;
+			}
+		}
+		if (isprime)
+			printf("please enter another integer for analysis;");
+		printf("enter q to quit.\n");
+
+	}
+	printf("Bye.\n");
+	return 0;
+}
+ chcount.c
+#include<stdio.h>
+#define PERIOD '.'
+int main(void){
+	char ch;
+	int charcount = 0;
+
+	while ((ch = getchar()) != PERIOD){
+		if (ch != '"'&&ch != '\'')
+			charcount++;
+	}
+	printf("There are %d non-quote characters.\n",charcount);
+	return 0;
+}
+ //wordcount.c
+#include<stdio.h>
+#include<ctype.h>
+#include<stdbool.h>
+#define STOP '|'
+int main(void){
+
+	char c;
+	char prev;
+	long n_chars = 0L;
+	int n_lines = 0;
+	int n_words = 0;
+	int p_lines = 0;
+	bool inword = false;
+
+	printf("Enter text to be analyzed (|to terminate):\n");
+	prev = '\n';
+	while ((c = getchar()) != STOP){
+		n_chars++;
+		if (c == '\n')
+			n_lines++;
+		if (!isspace(c) && !inword){
+			inword = true;
+			n_words++;
+		}
+		if (isspace(c) && inword)
+			inword = false;
+		prev = c;
+	}
+	if (prev != '\n')
+		p_lines = 1;
+	printf("characters=%ld,words=%d,lines=%d,", n_chars, n_words, n_lines);
+	printf("partial lines =%d\n", p_lines);
+	return 0;
+}
