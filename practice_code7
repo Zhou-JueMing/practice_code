@@ -149,3 +149,143 @@ int main(void){
 	printf("partial lines =%d\n", p_lines);
 	return 0;
 }
+#define _CRT_SECURE_NO_WARNINGS 1
+skippart.使用continue跳过部分循环
+#include<stdio.h>
+int main(void)
+{
+	const float MIN = 0.0f;
+	const float MAX = 100.0f;
+
+	float score;
+	float total = 0.0f;
+	int n = 0;
+	float min = MAX;
+	float max = MIN;
+
+	printf("enter the first score(q to quit):");
+	while (scanf("%f", &score) == 1){
+		if (score<MIN || score>MAX){
+			printf("%0.1f is an invalid value.Try again:", score);
+			continue;
+		}
+		printf("accepting %0.1f:\n", score);
+		min = (score < min) ? score : min;
+		max = (score>max) ? score : max;
+		total += score;
+		n++;
+		printf("Enter next score (q to quit):");
+	}
+	if (n > 0){
+		printf("Average is %0.1f.\n,low is %0.1f,high is %0.1f\n", total / n, min, max);
+
+	}
+	else
+		printf("NO valid scores were entered.\n");
+	return 0;
+
+}
+#include<stdio.h>
+int main(void){
+	int count = 0;
+	char ch;
+
+	while (count < 10){
+		ch = getchar();
+		if (ch == '\n')
+			continue;
+		putchar(ch);
+		count++;
+
+	}
+	return 0;
+}
+#include<stdio.h>
+int main(void){
+	int p, q;
+	printf("enter p (q to quit):\n");
+	while (scanf("%d", &p) && p > 0);
+	printf("%d\n",&q);
+	scanf("%d", &q);
+	while (q > 0){
+		printf("%d\n", p*q);
+		if (q > 100)
+			break;
+		scanf("%d", &q);
+	}
+	if (q > 100)
+		;
+	scanf("%d", &p);
+	return 0;
+}
+#include<stdio.h>
+#include<ctype.h>
+int main(void){
+	char ch;
+	printf("give a letter of the alphabet,given an animal name\n beginning with that letter.\n(enter # to quit)");
+	while ((ch = getchar()) != '#'){
+		if ('\n' == ch)
+			continue;
+		if (islower(ch))
+			switch (ch)
+		{
+            case 'a':
+				/*printf("argail");
+				break;
+			case  'b':
+				printf("babirusa");
+				break;
+			case'c':
+				printf("coati");
+				break;
+			case'd':
+				printf("desman");
+				break;
+			default:
+				printf("that's a stumper!\n");
+		}
+		else
+			printf("i recognize only lowercase letters.\n");
+		while (getchar != '\n')
+			continue;
+		printf("please enter another letter or # to quit:\n");
+
+	}
+	printf("bye!\n");
+	return 0;
+}*/
+#include<stdio.h>
+int main(void){
+	int num;
+	for (num = 1; num <= 11; num++){
+		if (num % 3 == 0)
+			putchar('$');
+		else putchar('*');
+		     putchar('#');
+		putchar('%');
+
+	}
+	putchar('\n');
+		return 0;
+}
+#include<stdio.h>
+int main(void){
+	char ch;
+
+	while ((ch = getchar()) != '#')
+	{
+		if (ch == '\n')
+			continue;
+		printf("step 1\n");
+		if (ch == 'c')
+			continue;
+		else if (ch == 'b')
+			break;
+		else if(ch == 'h')
+			goto laststep;
+	laststep:printf("step 3\n");
+		
+	}
+	printf("Done\n");
+	return 0;
+}
