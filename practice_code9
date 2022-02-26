@@ -1,0 +1,235 @@
+#include<stdio.h>
+int main(void)
+{
+	char ch;
+	while ((ch = getchar()) != '#')
+		putchar(ch);
+	return 0;
+}
+#include<stdio.h>
+void display(char cr, int lines, int width);
+int main(void)
+{
+	int cr;
+	int rows, cols;
+
+	printf("Enter a character and two integers:\n");
+	while ((cr = getchar()) != '\n')
+	{
+		scanf("%d %d", &rows, &cols);
+//		display(cr, rows, cols);
+		printf("Enter another characters and two integers:\n");
+		printf("Enter a newline to quit.\n");
+
+	}
+	printf("Bye.\n");
+	return 0;
+}
+void display(char cr, int lines, int width)
+{
+	int row, col;
+	for (row = 1; row <= lines; row++)
+	{
+		for (col = 1; col <= lines; col++)
+			putchar(cr);
+		putchar('\n');
+
+	}
+}
+#include<stdio.h>
+#define SIZE 50
+int main(void)
+{
+	float list[SIZE];
+
+	readlist(list, SIZE);
+	sort(list, SIZE);
+	average(list, SIZE);
+	bargraph(list, SIZE);
+	return 0;
+}
+lethead2.c
+#include<stdio.h>
+#include<string.h>
+#define NAME "GIGATHINK,INC."
+#define ADDRESS "101 Meagebuck plaza"
+#define PLACE "Megapolis,CA 94904"
+#define WIDTH 40
+#define SPACE ' '
+void show_n_char(char ch, int num);
+int main(void)
+{
+	int spaces;
+
+	show_n_char('*', WIDTH); 
+	putchar('\n');
+		show_n_char(SPACE, 12);
+		printf("%s\n", NAME);
+		spaces = (WIDTH - strlen(ADDRESS)) / 2;
+
+		show_n_char(SPACE, spaces);
+		printf("%s\n", ADDRESS);
+		show_n_char(SPACE, (WIDTH - strlen(PLACE)) / 2);
+
+		printf("%s\n", PLACE);
+		show_n_char('*', WIDTH);
+		putchar('\n');
+
+		return 0;
+}
+void show_n_char(char ch, int num)
+{
+	int count;
+
+	for (count = 1; count <= num; count++)
+		putchar(ch);
+}
+lesser.c--找出较小的一个整数
+#include<stdio.h>
+int imin(int, int);
+int main(void)
+{
+	int evil1, evil2;
+
+	printf("Enter a pair of intrgers (q to quit):\n");
+	while (scanf("%d %d", &evil1, &evil2) == 2)
+	{
+		printf("the lesser of %d and %d is %d", evil1, evil2, imin(evil1, evil2));
+		printf("Enter a pair of integers (q to quit):\n");
+
+	}
+	printf("Bye.\n");
+	return 0;
+}
+int imin(int n, int m)
+{
+	int min;
+	if (n < m)
+	min = n;
+	else
+		min = m;
+	return min;
+}
+  
+#include<stdio.h>
+int imax(int, int);
+int main(void)
+{
+	printf("The maximum of %d and %d is %d.\n", 3, 5, imax(3,5));
+	printf("The maximum of %d and %d is %d.\n", 3, 5, imax(3.0, 5.0));
+	return 0;
+
+}
+int imax(int a, int b)
+{
+	return(a > b ? a : b);
+}
+
+尾递归计算计算阶乘
+#include<stdio.h>
+long long fact(int n);
+long long rfact(int n);
+int main(void)
+{
+	int num;
+
+	printf("Enter a integer (q to quit):\n");
+	while (scanf("%d", &num) == 1)
+	{
+		if (num<0)
+			printf("no negative numbers,please.\n");
+		else if (num>20)
+			printf("keep input under 21\n");
+		else
+		{
+			printf("loop:%d factorial=%lld\n", num, fact(num));
+			printf("recursion:%d factorial=%lld\n", num, rfact(num));
+		}
+		printf("Enter a value in the range 0-20(q to quit):\n");
+
+
+	}
+	printf("Bye.\n");
+	return 0;
+}
+long long fact(int n)
+{
+	long long ans;
+	for (ans = 1; n > 1; n--)
+	ans *= n;
+	return ans;
+}
+long long rfact(int n)
+{
+	long long ans;
+	if (n > 0)
+		ans = n*rfact(n - 1);
+	else
+		ans = 1;
+	return ans;
+}
+#include<stdio.h>
+void to_binary(unsigned long n);
+int main(void)
+{
+	unsigned long number;
+	printf("Enter an integer (q  to quit).\n");
+	while (scanf("%d", &number) == 1)
+	{
+		printf("Binary equivalent:");
+		to_binary(number);
+		putchar('\n');
+		printf("Enter  an integer (q to quit):\n");
+
+	}
+	printf("Done.\n");
+	return 0;
+}
+void to_binary(unsigned long n)
+{
+	int r;
+
+	r = n % 2;
+	if (n >= 2)
+		to_binary(n / 2);
+	putchar(r == 0 ? '0' : '1');
+	return;
+}
+#include<stdio.h>
+void interchange(int*u, int*v);
+int main(void)
+{
+	int x = 5, y = 10;
+	printf("oringinally x=%d and y=%d.\n", x, y);
+	interchange(&x, &y);
+	printf("Now x=%d and y=%d.\n", x, y);
+
+	return 0;
+}
+void interchange(int*u, int*v)
+{
+	int temp;
+	temp = *u;
+	*u = *v;
+	*v = temp;
+}
+  
+
+#include<stdio.h>
+void alter(int*x, int*y);
+int main(void)
+{
+	int a, b;
+	scanf("%d %d", &a, &b);
+	alter(a, b);
+	printf("%d %d", *&a, *&b); 
+	return 0;
+
+}
+void alter(int*x, int*y)
+{
+	int temp;
+	temp = *x - *y;
+	*x = *x + *y;
+	*y = temp;
+}
