@@ -233,3 +233,168 @@ void alter(int*x, int*y)
 	*x = *x + *y;
 	*y = temp;
 }
+#include<stdio.h>
+void show_menu(void);
+int getchoice(int, int);
+int main(void){
+	int res;
+	show_menu();
+	while ((res = getchoice(1, 4)) != 4){
+		printf("I like choice %d.\n", res);
+		show_menu();
+	}
+	printf("Bye!\n");
+	return 0;
+}
+void show_menu(void){
+	printf("pleaes choose one of following:\n");
+	printf("1) copy files     2)move files\n");
+	printf("3) remove files   4)quit\n");
+	printf("Enter the number of your choice:\n");
+
+}
+int getchoice(int low, int high){
+	int ans, good;
+	good = scanf("%d", &ans);
+	while (good == 1 && (ans<low || ans>high)){
+		printf("%d is not a valid choice;try again\n", ans);
+		show_menu();
+		scanf("%d", &ans);
+		if (good != 1){
+			printf("Non-numeric input.");
+			ans = 4;
+		}
+	}
+	return ans;
+}
+1
+#include<stdio.h>
+double min(double, double);
+int main(void)
+{
+	double d1, d2;
+	printf("please enter two float number:");
+	scanf("%lf %lf", &d1, &d2);
+	printf("the min of you have puu in of %g and %g is %g", d1, d2, min(d1, d2));
+	return 0;
+}
+double min(double x, double y){
+	if (x < y) return x;
+	else return y;
+}
+#include<stdio.h>
+void chline(char ch, int cols, int rows);
+
+int main(void){
+	char c;
+	int i, j;
+	printf("Enter rhe char you want to print:");
+	scanf("%c", &c);
+	printf("Enter the cols and rows you want to print:");
+	scanf("%d %d", &j, &i);
+	chline(c, i, j);
+	return 0;
+}
+void chline(char ch, int cols, int rows){
+	for (int m = 0; m < rows; m++){
+		for (int n = 0; n < cols; n++)
+			printf("%c", ch);
+		printf("\n");
+	}
+}
+#include<stdio.h>
+double harmean(double x, double y);
+int main(void){
+	double d1, d2;
+	printf("Enter two float number:");
+	scanf("%lf %lf", &d1, &d2);
+	printf("The harNAME of %g and %g is %g.", d1, d2, harmean(d1, d2));
+	return 0;
+}
+double harmean(double x, double y){
+	return 2 / (1 / x + 1 / y);
+}
+#include<stdio.h>
+void larger_of(double *x, double *y);
+int main(void){
+	double d1, d2;
+	printf("Enter two float number:");
+	scanf("%lf %lf", &d1, &d2);
+	printf("DATA you input is %g and %g.\n", d1, d2);
+	larger_of(&d1, &d2);
+	printf("After function data is %g and %g.\n", d1, d2);
+}
+void larger_of(double *x, double *y){
+	if (*x > *y) *y = *x;
+	else *x = *y;
+}
+#include<stdio.h>
+void ordering(double*x, double*y, double*z);
+int main(void){
+	double d1, d2, d3;
+	printf("Enter three float number:");
+	scanf("%lf %lf %lf", &d1, &d2, &d3);
+	printf("Data you input is %g,%g and %g.\n", d1, d2, d3);
+
+}
+void ordering(double*x, double*y, double*z){
+	double temp;
+	if (*x > *y){
+		temp = *x;
+		*x = *y;
+		*y = temp;
+	}
+	if (*x > *z){
+		temp = *x;
+		*x = *z;
+		*z = temp;
+	}
+	if (*y > *z){
+		temp = *z;
+		*y = *z;
+		*z = temp;
+	}
+}
+
+#include<stdio.h>
+double power(double n, int p);
+int main(void){
+	double x, xpow;
+	int exp;
+
+	printf("Enter a number and the integer power");
+	printf("to which \n mthe numer will be raised.Enter q");
+	printf("to quit.\n");
+	while (scanf("%lf %d", &x, &exp)== 2){
+		xpow = power(x, exp);
+		printf("%.3g to the power %d is %.5g\n", x, exp, xpow);
+		printf("Enter the next pair of numbers or q to quit.\n");
+
+	}
+	printf("Hope you enjoy this power trip--bye!\b");
+	return 0;
+
+}
+double power(double n, int p){
+	double pow = 1;
+	int i;
+	if (n == 0 && p == 0){
+		printf("the %g to the powwer %c is not define,return1!\n", n, p);
+		return 1;
+		if (n == 0)return 0;
+		if (p == 0)return 1;
+		if (p > 0){
+			for (i = 1; i <= -p; i++)
+				pow *= n;
+			return pow;
+
+		}
+		else{
+
+			for (i = 1; i <= -p; i++)
+				pow *= n;
+			return 1 / pow;
+		}
+		 
+	}
+}
