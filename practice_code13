@@ -1,0 +1,102 @@
+//文件的输入与输出
+ //count.c
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+//int main(int argc, char *argv[]){
+//	int ch;
+//	FILE *fp;
+//	unsigned long count = 0;
+//	if (argc != 2){
+//		printf("usage:%s filename\n", argv[0]);
+//		exit(EXIT_FAILURE);
+//	}
+//		if ((fp = fopen(argv[1], "r")) == NULL){
+//			printf("can't open %s\n", argv[1]);
+//			exit(EXIT_FAILURE);
+//		}
+//		while ((ch = getc(fp)) != EOF){
+//			putc(ch,stdout);
+//			count++;
+//		}
+//	
+//	fclose(fp);
+//	printf("File %s has %lu characters\n", argv[1], count);
+//	return 0;
+//}
+//使用入口循环进行文件输入
+//int ch;
+//FILE*fp;
+//fp = fopen("ackey.txt", 'r');
+//ch = getc(fp);
+//while (fp != EOF){
+//	putchar(ch);
+//	ch = getc(fp);
+//}
+//reduceto.c
+//#include<stdio.h>
+//#include<string.h>
+//#include<stdlib.h>
+//#define LEN 40
+//
+//int main(int argc, char*argv[]){
+//	FILE*in, *out;
+//	int ch;
+//	char name[LEN];
+//	int count = 40;
+//
+//	if (argc < 2){
+//		fprintf(stderr, "usage:%s filename\n", argv[0]);
+//		exit(EXIT_FAILURE);
+//	}
+//	if ((in = fopen(argv[1], "r")) == NULL){
+//		fprintf(stderr, "i counld't open the file\"%s\n", argv[1]);
+//			exit(EXIT_FAILURE);
+//	}
+//	strncpy(name, argv[1], LEN - 5);
+//	name[LEN - 5] = '\0';
+//	strcat(name, ".red");
+//	if ((out = fopen(name, "w")) == NULL){
+//		fprintf(stderr, "can't creat output file.\n");
+//			exit(3);
+//
+//	}
+//	while (ch = getc(in)!=EOF)
+//	if (count++ % 3 == 0)
+//		putc(ch, out);
+//	if (fclose(in) != 0 || fclose(out) != 0)
+//		fprintf(stderr, "error in closing files\n");
+//
+//	return 0;
+//}
+//fseek and ftell
+#include<stdio.h>
+#include<stdlib.h>
+#define CNTL_Z '\032'
+#define SLEN 81
+int main(void){
+
+	char file[SLEN];
+	char ch;
+	FILE *fp;
+	long count, last;
+
+	puts("enter the name of the file to be processed:");
+	scanf("%80s", file);
+	if ((fp = fopen(file, "rb")) == NULL){
+		printf("resvere can't open %s \n", file);
+		exit(EXIT_FAILURE);
+	}
+	fseek(fp, 0L, SEEK_END);
+	last = ftell(fp);
+	for (count = 1L; count <= last; count++){
+		fseek(fp, -count, SEEK_END);
+		ch = getc(fp);
+		if (ch != CNTL_Z&&ch != '\r')
+			putchar(ch);
+	}
+	putchar('\n');
+	fclose(fp);
+
+	return 0;
+}
