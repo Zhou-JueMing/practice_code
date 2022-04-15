@@ -1,0 +1,537 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+int main(){
+	return 1;
+}
+#include<iostream>
+int main(){
+	std::cout << "Enter two numbers:" << std::endl;
+	int v1 = 0, v2 = 0;
+	std::cin >> v1 >> v2;
+	std::cout << "the sum of" << v1 << "and" << v2 << "is" << v1 + v2 << std::endl;
+	return 0;
+
+}
+#include<iostream>
+int main()
+{
+	std::cout << "hello,world" << std::endl;
+	return 0;
+}
+#include<iostream>
+int main(){
+	std::cout << "please enter two integers\n" << std::endl;
+	int v1 = 0, v2 = 0;
+	std::cin >> v1 >> v2;
+	std::cout << "the product of" << v1 << " and "<<v2 << " is " << v1*v2 << std::endl;
+	return 0;
+}
+#include<iostream>
+int main(){
+	std::cout << "hello "<< std::endl;
+	std::cout << "world" << std::endl;
+	std::cout << "please enter the year" << std::endl;
+	int Years;
+	std::cin >> Years;
+	std::cout << "the year is" << Years << std::endl;
+	return 0;
+
+}
+#include<iostream>
+int main(){
+	std::cout <</*"*/"/*"/*"*/;
+		return 0;
+}
+#include<iostream>
+int main(){
+	int sum = 0, val = 1;
+	while (val <= 10000){
+		sum += val;
+		++val;
+	}
+	std::cout << "sum of 1 to 10 inclusive is"
+		<< sum << std::endl;
+	return 0;
+}
+#include<iostream>
+int main(){
+	int sum = 0, val = 10;
+	while (val >=0){
+		sum += val;
+		--val;
+	}
+	std::cout << "sum of 10 to 0 inclusive is"
+		<< sum << std::endl;
+	return 0;
+}
+#include<iostream>
+int main(){
+	int v1, v2, v3;
+	std::cin >> v1 >> v2;
+	while (v1 <= v2){
+	std::cout << v1 << std::endl;
+	v1++;
+	}while (v2 <=v1){
+		std::cout << v2 << std::endl;
+		v2++;
+	}
+	return 0;
+
+}
+#include<iostream>
+#define MAX 10
+using namespace std;
+int main(){
+	const int a = 20;
+	cout << "hello world" <<" is "<< MAX  << a << endl;
+	system("pause");
+	return 0;
+}
+#include<iostream>
+using namespace std;
+int main(){
+	int a = 0;
+	cout << "给整形变量a赋值" << endl;
+	cin >> a;
+	cout << a << endl;
+	return 0;
+
+}
+#include<iostream>
+using namespace std;
+int main(){
+	int score = 0;
+	cout << "请您输入一个分数：" << endl;
+	cin >> score;
+	cout << "您的分数为：" <<   score   << endl;
+	if (score >= 600){
+		cout << "考上一本大学" << endl;
+		if (score >= 700)
+			cout << "您考入的大学是："<<"北京大学" << endl;
+		else if (score >= 650)
+			cout << "您考入的大学是：" << "清华大学" << endl;
+		else
+			cout << "您考入的大学是：" << "中国人民大学" << endl;
+	}
+	else if (score >= 500)
+		cout << "考上二本大学" << endl;
+	else if (score >= 400)
+		cout << "考上三本大学" << endl;
+	else
+		cout << "未考上大学" << endl;
+	return 0;
+
+}
+#include<iostream>
+using namespace std;
+int main(){
+	int weight1 = 0, weight2 = 0,weight3 = 0;
+	cout << "please enter the weight of pig1,2,3:" << endl;
+	cin >> weight1 >> weight2 >> weight3;
+	if (weight1 > weight2){
+		if (weight1 >= weight3){
+			cout << "pig1" << endl;
+		}
+		else
+			cout << "pig3" << endl;
+	}
+	if (weight1 <weight2){
+		if (weight2 >= weight3){
+			cout << "pig2" << endl;
+		}
+		else
+			cout << "pig3" << endl;
+	}
+	return 0;
+}
+#include<iostream>
+using namespace std;
+int main(){
+	cout << "请您输入您的分数：" << endl;
+	int score;
+	cin >> score;
+	cout << "您输入的分数为：" << score << endl;
+	switch (score){
+
+
+	case 10:
+		cout << "您认为是经典电影" << endl;
+		break;
+	case 9:
+		cout << "您认为是经典电影" << endl;
+		break;
+	case 8:
+		cout << "您认为是好电影" << endl;
+		break;
+	case 7:
+		cout << "您认为是好电影" << endl;
+		break;
+	case 6:
+		cout << "您认为电影一般" << endl;
+		break;
+	case 5:
+		cout << "您认为电影一般" << endl;
+		break;
+	default:
+		cout << "大烂片一部" << endl;
+		break;
+	
+	}
+	return 0;
+}
+#include<iostream>
+using namespace std;
+int main(){
+	int i = 0;
+	while (i <= 10){
+		cout << i << endl;
+		i++;
+	}
+	return 0;
+}
+#include<iostream>
+#include<ctime>
+using namespace std;
+int main(){
+	srand((unsigned)time(NULL));
+	int Number=rand() % 100 + 1;
+	/*cout << Number << endl;*/
+	while (1){
+	int val = 0;
+	cin >> val;
+		if (val > Number)
+			cout << "猜测过大了";
+		else if (val < Number)
+			cout << "猜测过小了";
+		else
+		{
+			cout << "猜对了";
+			break;
+		}
+		system("pause");
+	}
+	return 0;
+}
+#include<iostream>
+using namespace std;
+int main(){
+	int num = 100;
+	do{
+		int a = 0, b = 0, c = 0;
+		a = num % 10;
+		b = num / 10 % 10;
+		c = num / 100;
+		if (a*a*a + b*b*b + c*c*c == num){
+
+			cout << num << endl;
+		}
+		num++;
+	} while (num < 1000);
+	return 0;
+}
+#include<iostream>
+using namespace std;
+int main(){
+	for (int i = 0; i < 10; i++){
+		cout << i << endl;
+	}
+	return 0;
+}
+#include<iostream>
+using namespace std;
+int main(){
+	for (int i = 1; i < 100; i++){
+		if(i % 7 == 0 || i % 10 == 7 || i / 10 == 7){
+			cout << i   <<  "敲桌子" << endl;
+		}
+		else
+		cout << i << endl;
+	}
+	return 0;
+}
+Status GetElem(LinkList L, int i, ElemType &e){
+	p->next; j = 1;
+	while (p&&j < i){
+		p = p->next;
+		++j;
+	}
+	if (!p || j>1)return ERROR;
+	e = p->data;
+	return ok;
+}
+#include<iostream>
+using namespace std;
+int main(){
+	for (int i = 1; i <= 9; i++){
+		for (int j = 1; j <= i; j++){
+			cout <<  j  << "*" << i <<"= "<<" "<<j*i<<"  ";
+		}
+		cout << endl;
+	}
+	return 0;
+}
+#include<iostream>
+using namespace std;
+int main(){
+	/*int arr[5] = { 300, 350, 200, 400, 250 };
+	int max = 0;
+	for (int i = 0; i < 5; i++){
+		if (arr[i]>max){
+			max = arr[i];
+		}
+	}
+	cout << "最重的小猪重量为：" << max << endl;*/
+	/*int arr[5] = { 1, 3, 2, 5, 4 };
+	for (int i = 0; i < 5; i++){
+		{
+			cout << arr[i] << endl;
+		}
+		int start = 0;
+		int end = sizeof(arr) / sizeof(arr[0]) - 1;
+		while (start < end){
+
+
+			int temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+
+
+			start++;
+			end--;
+		}
+		cout << arr[i] << endl;
+	}
+	return 0;
+}*/
+#include<iostream>
+using namespace std;
+int main(){
+	int arr[9] = { 4, 2, 8, 0, 5, 7, 1, 3, 9 };
+	cout << "排序前" << endl;
+	for (int i = 0; i < 9; i++){
+		cout << arr[i] << "   ";
+	}
+	cout << endl;
+	for (int i = 0; i < 9 - 1; i++){
+		for (int j = 0; j < 9 - i - 1; j++){
+			if (arr[j]>arr[j + 1]){
+				int temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+		}
+	}
+	cout << "排序后" << endl;
+	for (int j = 0; j < 9; j++){
+		cout << arr[j] << "   ";
+}
+	return 0;
+}
+#include<iostream>
+#include "swap.h"
+using namespace std;
+#include<string>
+void swap02(int*p1, int*p2);
+int main(){
+	/*int arr[2][3] = {
+		{ 1, 2, 3 },
+		{ 4, 5, 6 } };
+	for (int i = 0; i < 2; i++){
+		for (int j = 0; j < 3; j++){
+			cout << arr[i][j] << endl;
+		}
+
+	}*/
+	/*string names[3] = { "张三", "李四", "王五" };
+	int score[3][3] = {
+		{ 100, 100, 100 },
+		{ 90, 50, 100 },
+		{60,70,80}
+	};
+	for (int i = 0; i < 3; i++){
+		int sum = 0;
+		for (int j = 0; j < 3; j++){
+			sum += score[i][j];
+		}
+		cout << names[i] << "的分数是" <<"  "<< sum << "  ";
+		cout << endl;
+	}*/
+	/*int a = 10;
+	int b = 20;
+	swap(a, b);*/
+	/*int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	int*p = arr;
+	for (int i = 0; i < 10; i++){
+		cout << "第"<<i+1<<"个元素是" << *p << endl;
+		p++;
+	}*/
+	/*int a = 10;
+	int b = 20;
+	cout <<"a的地址是"<< &a << endl;
+	cout <<"b的地址是"<< &b << endl;
+	cout << "a=" << a << endl;
+	cout << "b=" << b << endl;
+
+	swap02(&a, &b);
+	cout << "a=" << a << endl;
+	cout << "b=" << b << endl;
+
+	cout << "a的地址是" << &a << endl;
+	cout << "b的地址是" << &b << endl;
+	return 0;
+}
+void swap02(int *p1, int*p2){
+	int temp = *p1;
+		*p1 = *p2;
+	*p2 = temp;
+}*/
+
+#include<iostream>
+#include<string>
+using namespace std;
+struct Student{
+	string name;
+	int age;
+	int score;
+}s3;
+int main(){//第一种初始方式：
+
+	struct Student s1;
+	s1.name = "张三";
+	s1.age = 18;
+	s1.score = 100;
+	cout << "姓名为  " << s1.name << "   " << "年龄  " << s1.age << "   " << "分数" << "   "<<s1.score << endl;
+	
+	第二种初始方式
+	struct Student s2= { "李四", 19, 80};
+	cout << "姓名为  " << s2.name << "   " << "年龄  " << s2.age << "   " << "分数" << "   " << s2.score << endl;
+
+	第三种定义方式
+	s3.name = "王五";
+	s3.age = 19;
+	s3.score = 70;
+	cout << "姓名为  " << s3.name << "   " << "年龄  " << s3.age << "   " << "分数" << "   " << s3.score << endl;
+		
+}
+#include<iostream>
+#include<string>
+#include<ctime>
+using namespace std;
+struct student{
+	string sname;
+	int score;
+};
+struct teacher{
+	string tname;
+	int age;
+	struct student sarray[5];
+};
+
+void allocateSpace(struct teacher tarray[], int len){
+	string nameseed = "ABCDE";
+	for (int i = 0; i < len; i++){
+		tarray[i].tname = "Teacher_";
+		tarray[i].tname += nameseed[i];
+		for ( int j = 0; j < 5; j++){
+
+
+			tarray[i].sarray[j].sname = "Student_";
+			tarray[i].sarray[j].sname += nameseed[j];
+
+			int random = rand() % 61 + 40;
+			tarray[i].sarray[j].score = random;
+		}
+	}
+}
+void printfinfo(struct teacher tarray[], int len){
+	for (int i = 0; i < len; i++){
+		cout << "老师姓名  " << tarray[i].tname << endl;
+		for (int j = 0; j < 5; j++){
+			cout << " \t学生姓名   " << tarray[i].sarray[j].sname <<
+				"考试分数    " << tarray[i].sarray[j].score << endl;
+		}
+	}
+}
+int main(){
+	srand((unsigned int)time(NULL));
+	/*struct Student StuArray[3] = {
+		{ "张三", 18, 100 },
+		{ "李四",20,99 },
+		{ "王五",18,80 }
+	};
+	StuArray[2].name = "赵六";
+	for (int i = 0; i < 3; i++){
+		cout << "姓名：  " << StuArray[i].name
+			<< "年龄：   " << StuArray[i].age
+			<< "分数：   " << StuArray[i].score << endl;
+	}*/
+	/*struct student s = {"张三", 18, 100};
+	struct student*p = &s;
+	cout << "姓名为  " << p->name << "年龄为：  " << p->age << "分数为：  " << p->score << endl;*/
+	/*teacher t;
+	t.id = 10000;
+	t.name = "老王";
+	t.age = 50;
+	t.stu.name = "小王";
+	t.stu.age = 20;
+	t.stu.score = 100;
+	cout << "姓名为  " << t.id << "  年龄为：  " <<  << "分数为：  " << p->score << endl; */
+
+	/*struct teacher tarray[3];
+	int len = sizeof(tarray) / sizeof(tarray[0]);
+	allocateSpace(tarray, len);
+	printfinfo(tarray, len);
+
+	return 0;
+
+}*/
+#include<iostream>
+using namespace std;
+void mySwap01(int a, int b){
+	int temp = a;
+	a = b;
+	b = temp;
+}
+void mySwap02(int*a, int*b){
+	int temp = *a;
+	*a = *b;
+		*b = temp;
+	
+}
+void mySwap03(int &a, int &b){
+	int temp = a;
+	a = b;
+	b = temp;
+}
+int main(){
+	int a = 10;
+	int b = 20;
+
+	/*mySwap01(a, b);
+	cout << "a=  " << a << endl;
+	cout << "b=  " << b << endl;
+
+	mySwap02(&a, &b);
+	cout << "a=  " << a << endl;
+	cout << "b=  " << b << endl;*/
+
+	/*mySwap03(a, b);
+	cout << "a=  " << a << endl;
+	cout << "b=  " << b << endl;*/
+
+	值传递，形参不会改变实参
+	/*cout << "a=  " << a << endl;
+	cout << "b=  " << b << endl;*/
+
+	/*return 0;
+
+}*/
+#include<iostream>
+using namespace std;
+int func(int a, int b, int c = 20){
+	return (a + b + c);
+}
+int main(){
+	int sum = func(10, 20);
+	cout << sum << endl;
+	return 0;
+}
