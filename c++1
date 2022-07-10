@@ -535,3 +535,916 @@ int main(){
 	cout << sum << endl;
 	return 0;
 }
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<iostream>
+#include<vector>
+#include<string>
+#include<deque>
+#include<algorithm>
+#include<stack>
+#include<queue>
+#include<list>
+#include<set>
+using namespace std;
+
+template<class T>
+class Base{
+	T m;
+
+};
+class Son :public Base<int>{
+
+};
+void test01(){
+	Son s1;
+}
+template<class T1, class T2>
+class Son2{
+public:
+	Son2(){
+		cout << "T1的类型为：  " << typeid(T1).name() << endl;
+	}
+	T1 obj;
+};
+void test02(){
+	Son2<int, char>s2;
+}
+int main(){
+	test02();
+
+}
+template <class T1,class T2>
+class Person{
+public:Person(T1 name, T2 age);
+	   void showPerson();
+	   T1 m_Name;
+	   T2 m_Age;
+};
+
+void test01(){
+	Person<string,int>p("Tom",18);
+	p.showPerson();
+}
+int main(){
+	test01();
+}
+#include<string>
+template<class T1,class T2>
+class Person{
+
+	friend void printPerson（Person<T1, T2> p){
+		cout << "姓名为：  " << p.m_Name << "年龄为：  " << p.m_Age << endl;
+	}
+
+public:person(T1 name,T2 age){
+		this->m_Name = name;
+		this->m_Age = age;
+	}
+private:
+	T1 m_Name;
+	T2 m_Age;
+};
+
+void  test01(){
+	Person<string, int> p("TOM",20);
+}
+int main(){
+	test01();
+}
+void myPrint(int val){
+	cout << val << endl;
+}
+void test01(){
+	vector<int> v;
+	v.push_back(10);
+	v.push_back(20);
+	v.push_back(30);
+	v.push_back(40);
+
+	/*vector<int>::iterator itBegin = v.begin();
+	vector<int>::iterator itEnd = v.end();
+
+	while (itBegin != itEnd){
+		cout << *itBegin << endl;
+		itBegin++;
+	}*/
+	/*for (vector<int>::iterator it = v.begin(); it != v.end(); it++){
+		cout << *it << endl;
+
+	}*/
+	/*for_each(v.begin(), v.end(), myPrint);
+}
+int main(){
+	test01();
+}*/
+class Person
+{
+public:
+	Person(string name,int age){
+		this->m_Name = name;
+		this->m_age = age;
+
+	}
+
+	string m_Name;
+	int m_age;
+};
+void test01(){
+	vector<Person>v;
+	Person p1("a", 10);
+	Person p2("b", 20);
+	Person p3("c", 30);
+	Person p4("d", 40);
+
+	v.push_back(p1);
+	v.push_back(p2);
+	v.push_back(p3);
+	v.push_back(p4);
+
+	for (vector<Person>::iterator it = v.begin(); it != v.end(); it++){
+		/*cout << "姓名为：  "<<(*it).m_Name << "年龄为：  " << (*it).m_age << endl;*/
+		cout << "姓名为：  " << it->m_Name << "年龄为：  " << it->m_age << endl;
+	}
+}
+void test02(){
+	vector<Person*>v;
+	Person p1("a", 10);
+	Person p2("b", 20);
+	Person p3("c", 30);
+	Person p4("d", 40);
+
+	v.push_back(&p1);
+	v.push_back(&p2);
+	v.push_back(&p3);
+	v.push_back(&p4);
+
+	for (vector<Person *>::iterator it = v.begin(); it != v.end(); it++){
+		cout << "姓名为：  " << (*it)->m_Name << "年龄为：  " << (*it)->m_age << endl;
+	}
+}
+int main(){
+	test01();
+	test02();
+}
+string构造函数
+void test01(){
+	string s1;
+	const  char*str = "hello world !";
+		string s2(str);
+		cout << "s2=  " << s2 << endl;
+
+		string s3(s2);
+		cout << "s3=  " << s3 << endl;
+
+		string s4(10, 'a');
+		cout << "s4=  " << s4<< endl;
+}
+int main(){
+	test01();
+}
+
+void test01(){
+	string str1;
+	str1 = "hello world";
+	cout << "str1=:  " << str1 << endl;
+
+
+		string str2;
+		str2 = str1;
+		cout << "str2=:  " << str2 << endl;
+
+		string str3;
+		str3 = 'a';
+		cout << "str3=   " << str3 << endl;
+
+		string str4;
+		str4.assign("hello c++");
+		cout << "str4    " << str4 << endl;
+
+		string str5;
+		str5.assign("hello c++", 5);
+		cout << "str5:    " << str5 << endl;
+
+}
+int main(){
+	test01();
+}
+void test01(){
+	string str1 = "我";
+	str1 += "爱玩游戏";
+	cout << "str1:   " << str1 << endl;
+
+	str1 += ':';
+	cout << "str1:   " << str1 << endl;
+
+	string str2 = "LOL DNF";
+	str1 += str2;
+	cout << "str1:   " << str1 << endl;
+
+	string str3 = "I ";
+	str3.append("love ");
+	cout << "str3:   " << str3 << endl;
+
+	str3.append("game abcde", 5);
+	cout << "str3:   " << str3 << endl;
+
+	str3.append(str2,4,3);
+	cout << "str3= " << str3 << endl;
+
+
+}
+
+
+int main(){
+	test01();
+}
+void test01(){
+	string str1 = "abcdefgde";
+
+	int pos=str1.find("de");
+	if (pos == -1){
+		cout << "没有找到哟~" << endl;
+	}
+	else{
+		cout << " 找到了哟 pos=  " << pos << endl;
+	}
+
+	int pos2 = str1.rfind("de");
+	if (pos2 == -1){
+		cout << "没有找到哟~" << endl;
+	}
+	else{
+		cout << " 找到了哟 pos2=  " << pos2 << endl;
+	}
+	
+}
+void test02(){
+	string str1 = "abcdefgh";
+	str1.replace(1, 3, "1111");
+	cout << "str1= " << str1 << endl;
+}
+int main(){
+	test01();
+	test02();
+}
+void test01(){
+	string str1 = "abcdefg";
+	string str2 = "abcdefg";
+	if (str1.compare(str2) == 0){
+		cout << "str1等于str2" << endl;
+	}
+	else if (str1.compare(str2) >0){
+		cout << "str1大于str2" << endl;
+	}
+	else{
+		cout << "str1小于str2" << endl;
+	}
+}
+int main(){
+	test01();
+}
+void test01(){
+	string str1 = "hello";
+	cout << "str=  " << str1<<endl;
+	for (int i = 0; i < str1.size(); i++){
+		cout << str1[i] << " ";
+	}
+	cout << endl;
+	for (int i = 0; i < str1.size(); i++){
+		cout << str1.at(i) << "  ";
+
+	}
+	cout << endl;
+
+	str1[0] = 'x';
+	str1.at(2) = 'y';
+	cout << "str1=  " << str1 << endl;
+}
+void test01(){
+	string str = "hello";
+	/*str.insert(1, "111");
+	cout << "str=  " << str << endl;
+
+	str.erase(1, 3);
+		cout << "str=  " << str << endl;*/
+	/*string substr = str.substr(1, 3);
+	cout << "substr=  " << substr << endl;
+}
+void test02(){
+	string email = "2956045288@qq.com";
+	int pos = email.find("@");
+	cout << pos << endl;
+
+	string username = email.substr(0, pos);
+
+	cout <<username << endl;
+}
+int main(){
+	test01();
+	test02();
+}*/
+void printVector(vector<int>&v){
+	for (vector<int>::iterator it = v.begin(); it != v.end(); it++){
+		cout << *it << "  ";
+
+	}
+	cout << endl;
+}
+void test01(){
+	vector<int>v1;
+	for (int i = 0; i < 10; i++){
+		v1.push_back(i);
+	}
+	printVector(v1);
+	//通过区间进行构造
+	vector<int>v2(v1.begin(), v1.end());
+		printVector(v2);
+
+		//几个elem的方式来进行构造
+		vector<int>v3(10, 100);
+		printVector(v3);
+}
+void test01(){
+	vector<int>v1;
+	for (int i = 0; i < 10; i++){
+		v1.push_back(i);
+	}
+	printVector(v1);
+
+	vector<int>v2;
+	v2 = v1;
+	printVector(v2);
+
+	vector<int>v3;
+	v3.assign(v1.begin(), v1.end());
+	printVector(v3);
+
+	vector<int>v4;
+	v4.assign(10, 100);
+	printVector(v4);
+}
+void test01(){
+	vector<int>v1;
+	for (int i = 0; i < 10; i++){
+		v1.push_back(i);
+	}
+	printVector(v1);
+
+	if (v1.empty()){
+		cout << "v1为空" << endl;
+	}
+	else{
+		cout << "v1不为空" << endl;
+		cout << "v1的容量为：   " << v1.capacity() << endl;
+		cout << "v1的大小为：   " << v1.size() << endl;
+	}
+	//重新指定大小
+	v1.resize(5);
+
+	printVector(v1);
+}
+void test01(){
+	vector<int>v1;
+
+	v1.push_back(10);
+	v1.push_back(20);
+	v1.push_back(30);
+	v1.push_back(40);
+	v1.push_back(50);
+	//遍历
+	printVector(v1);
+
+//尾删
+	v1.pop_back();
+	printVector(v1);
+	//插入(第一个参数是迭代器）
+	v1.insert(v1.begin(), 100);
+     printVector(v1);
+	 v1.insert(v1.begin(), 2, 100);
+	 printVector(v1);
+	 //删除
+	 v1.erase(v1.begin());
+	 printVector(v1);
+	 //清空
+	 v1.erase(v1.begin(), v1.end());
+	 v1.clear();
+	 printVector(v1);
+}
+void test01(){
+	vector<int>v1;
+	for (int i = 0; i < 10; i++){
+		v1.push_back(i);
+	}
+
+	for (int i = 0; i < v1.size(); i++){
+		cout << v1[i] << " "; }
+	cout << endl;
+
+	for (int i = 0; i < v1.size(); i++){
+		cout << v1.at(i) << " ";
+	}
+	cout << endl;
+
+	获取第一个元素
+	cout << "第一个元素为： " << v1.front() << endl;
+	cout << "最后一个元素为： " << v1.back() << endl;
+}
+void test01(){
+	vector<int>v1;
+	for (int i = 0; i < 10; i++){
+		v1.push_back(i);
+
+	}
+	cout << "交换前：   " << endl;
+	printVector(v1);
+
+	vector<int>v2;
+	for (int i = 10; i>0; i--){
+		v2.push_back(i);
+	}
+	printVector(v2);
+
+	cout << "交换后：   " << endl;
+	v1.swap(v2);
+	printVector(v1);
+	printVector(v2);
+}
+void test02(){
+	vector<int>v;
+	for (int i = 0; i < 1000000; i++){
+		v.push_back(i);
+	}
+	cout << "v的容量为：  " << v.capacity() << endl;
+	cout << "v的大小为：  " << v.size() << endl;
+
+	v.resize(3);
+	cout << "v的容量为：  " << v.capacity() << endl;
+	cout << "v的大小为：  " << v.size() << endl;
+
+	//巧用swap收缩
+	vector<int>(v).swap(v);
+	cout << "v的容量为：  " << v.capacity() << endl;
+	cout << "v的大小为：  " << v.size() << endl;
+
+}
+预留空间
+void test01(){
+	vector<int>v;
+
+
+	v.reserve(100000);
+	int num = 0;
+	int *p = NULL;
+	for (int i = 0; i < 100000; i++)
+	{
+		v.push_back(i);
+
+		if (p != &v[0]){
+			p = &v[0];
+			num++;
+		}
+	}
+	cout << "num=  " << num << endl;
+}
+void printDeque(deque<int>&d){
+	for (deque<int>::const_iterator it = d.begin(); it != d.end(); it++){
+		
+		cout << *it << " ";
+
+	}
+	cout << endl;
+}
+void test01(){
+	deque<int>d1;
+	for (int i = 0; i < 10; i++){
+		d1.push_back(i);
+	}
+	printDeque(d1);
+
+	deque<int>d2(d1.begin(), d1.end());
+		printDeque(d2);
+
+		deque<int>d3(10, 100);
+		printDeque(d3);
+
+		deque<int>d4(d3);
+		printDeque(d4);
+
+}
+void test01(){
+	deque<int>d1;
+	for (int i = 0; i < 10; i++){
+		d1.push_back(i);
+	}
+	printDeque(d1);
+
+	if (d1.empty()){
+		cout << "d1为空" << endl;
+	}
+	else{
+		cout << "d1不为空" << endl;
+		cout << "d1的大小为" <<d1.size()<< endl;
+	}
+	d1.resize(15, 1);
+		printDeque(d1);
+}
+void test01(){
+	deque<int>d1;
+
+	d1.push_back(10);
+	d1.push_back(20);
+
+	d1.push_front(100);
+	d1.push_front(200);
+	printDeque(d1);
+
+	//尾删
+	d1.pop_back();
+	printDeque(d1);
+
+	d1.pop_front();
+	printDeque(d1);
+
+}
+void test02(){
+	deque<int>d1;
+
+	d1.push_back(10);
+	d1.push_back(20);
+	d1.push_front(100);
+	d1.push_front(200);
+
+	printDeque(d1);
+
+	//insert插入
+	d1.insert(d1.begin(), 1000);
+	printDeque(d1);
+
+	d1.insert(d1.begin(),3,  10000);
+	printDeque(d1);
+
+	//按照区间插入
+	deque<int>d2;
+	d2.push_back(1);
+	d2.push_back(2);
+	d2.push_back(3);
+
+	d1.insert(d1.end(), d2.begin(), d2.end());
+	printDeque(d1);
+}
+void test03(){
+	deque<int>d1;
+
+	d1.push_back(10);
+	d1.push_back(20);
+	d1.push_front(100);
+	d1.push_front(200);
+
+	deque<int>::iterator it = d1.begin();
+	it++;
+	d1.erase(it);
+	printDeque(d1);
+
+	//按照区间来删除
+	/*d1.erase(d1.begin(), d1.end());
+	printDeque(d1);*/
+	//清空操作
+	d1.clear();
+	printDeque(d1);
+}
+void test01(){
+	deque<int>d;
+
+	d.push_back(10);
+	d.push_back(20);
+	d.push_back(30);
+
+	d.push_front(100);
+	d.push_front(200);
+	d.push_front(300);
+	通过【】的方式来访问元素
+	/*for (int i = 0; i < d.size(); i++){
+		cout << d[i] << " ";
+	}
+	cout << endl;
+	for (int i = 0; i < d.size(); i++){
+		cout << d.at(i) << " ";
+	}
+	cout << endl;
+	cout << " 头元素为：  " << d.front() << endl;*/
+
+	printDeque(d);
+	sort(d.begin(), d.end());
+	cout << "排序后：  " << endl;
+	printDeque(d);
+
+}
+int main(){
+	test01();
+	/*test02();*/
+	/*test03();*/
+}
+void test01(){
+	stack<int>s;
+
+	s.push(10);
+	s.push(20);
+	s.push(30);
+	s.push(40);
+
+	cout << "栈的大小为：  " << s.size() << endl;
+	while (!s.empty()){
+		cout << "栈顶元素为：  " << s.top() << endl;
+		s.pop();
+	}
+	
+
+	cout << "栈的大小为：  " << s.size() << endl;
+}
+class Person{
+public:
+	Person(string name, int age){
+		this->m_Name = name;
+		this->m_Age = age;
+	}
+	string m_Name;
+	int m_Age;
+};
+void test01(){
+	queue<Person>q;
+
+	Person p1("唐僧",30);
+	Person p2("孙悟空", 1000);
+	Person p3("猪八戒", 900);
+	Person p4("沙僧", 800);
+
+
+	q.push(p1);
+	q.push(p2);
+	q.push(p3);
+	q.push(p4);
+
+	cout << "队列大小为：  " << q.size() << endl;
+	while (!q.empty()){
+		cout << "队头元素--姓名" << q.front().m_Name << " 年龄：  " << q.front().m_Age << endl;
+		cout << "队尾元素--姓名" << q.back().m_Name << " 年龄：  " << q.back().m_Age << endl;
+		q.pop();
+	}
+	cout << "队列大小为：  " << q.size() << endl;
+}
+void listPrint(const list<int>&L){
+	for (list<int>::const_iterator it = L.begin(); it != L.end(); it++){
+		cout << *it << " ";
+
+	}
+	cout << endl;
+}
+void test01(){
+	list<int>L1;
+
+	L1.push_back(10);
+	L1.push_back(20);
+	L1.push_back(30); 
+	L1.push_back(40);
+
+	listPrint(L1);
+
+	//区间的方法构造
+	list<int>L2(L1.begin(), L1.end());
+		listPrint(L2);
+
+	//拷贝构造
+	list<int>L3(L2);
+		listPrint(L3);
+
+	//n个elem构造
+	list<int>L4(10, 100);
+		listPrint(L4);
+
+}
+void test01(){
+	list<int>L1;
+	L1.push_back(10);
+	L1.push_back(20);
+	L1.push_back(30);
+	L1.push_back(40);
+	listPrint(L1);
+
+	list<int>L2;
+	L2 = L1;
+	listPrint(L2);
+
+	list<int>L3;
+	L3.assign(L2.begin(), L2.end());
+	listPrint(L3);
+
+	list<int>L4;
+	L4.assign(10, 1);
+	listPrint(L4);
+}
+void test02(){
+	list<int>L1;
+	L1.push_back(10);
+	L1.push_back(20);
+	L1.push_back(30);
+	L1.push_back(40);
+
+	list<int>L2;
+	L2.assign(10, 100);
+	cout << "交换前： " << endl;
+	listPrint(L1);
+	listPrint(L2);
+
+	L1.swap(L2);
+	cout << "交换后： " << endl;
+	listPrint(L1);
+	listPrint(L2);
+
+}
+void test01(){
+	list<int>L1;
+	L1.push_back(10);
+	L1.push_back(20);
+	L1.push_back(30);
+	L1.push_back(40);
+	listPrint(L1);
+
+	if (L1.empty()){
+		cout << "L1为空" << endl;
+	}
+	else{
+		cout << "L1不为空" << endl;
+		cout << "L1的元素个数为： " << endl;
+	}
+	//重新指定大小
+	L1.resize(10);
+	listPrint(L1);
+
+}
+void test01(){
+	list<int>L;
+	//尾插
+	
+	L.push_back(10);
+	L.push_back(20);
+	L.push_back(30);
+	L.push_back(40);
+
+	//头插
+	L.push_front(1);
+	L.push_front(2);
+	L.push_front(3);
+	L.push_front(4);
+
+	listPrint(L);
+	//尾删
+	L.pop_back();
+	listPrint(L);
+	//头删
+	L.pop_front();
+	listPrint(L);
+
+	//insert插入
+	list<int>::iterator it = L.begin();
+	cout << "请输入您需要插入的位置：  " << endl;
+	int pos;
+	cin >> pos;
+	for (int i = 0; i < pos; i++){
+		it++;
+	}
+	L.insert(it, 100);
+	listPrint(L);
+	it = L.begin();
+	L.erase(++it);
+	listPrint(L);
+
+	//移除
+	L.remove(100);
+	listPrint(L);
+
+	L.clear();
+	listPrint(L);
+}
+void test01(){
+	list<int>L1;
+	L1.push_back(10);
+	L1.push_back(20);
+	L1.push_back(30);
+	L1.push_back(40);
+
+	cout << "第一个元素为：  " << L1.front() << endl;
+	cout << "最后一个元素为：  " << L1.back() << endl;
+
+	list<int>::iterator it = L1.begin();
+	cout << "请输入您要查询的位置：  " << endl;
+	int pos;
+	cin >> pos;
+	for (int i = 0; i < pos; i++){
+		it++;
+	}
+	cout << "第" << pos << "个元素为：  " << L1.begin();
+}
+bool myCompare(int v1, int v2){
+	return v1 > v2;
+}
+void test01(){
+	list<int>L1;
+	L1.push_back(40);
+	L1.push_back(50);
+	L1.push_back(80);
+	L1.push_back(30);
+	L1.push_back(20);
+	cout << "反转前：  " << endl;
+	listPrint(L1);
+	L1.reverse();
+	cout << "反转后：  " << endl;
+	listPrint(L1);
+
+	cout << "排序前：  " << endl;
+	listPrint(L1);
+	L1.sort();
+	cout << "排序后：  " << endl;
+	listPrint(L1);
+
+	//从大到小排序
+	L1.sort(myCompare);
+	listPrint(L1);
+}
+void printSet(set<int>&s){
+	for (set<int>::iterator it = s.begin(); it != s.end(); it++){
+		cout << *it << " ";
+	}
+	cout << endl;
+}
+void test01(){
+	set<int>s1;
+	s1.insert(10);
+	s1.insert(40);
+	s1.insert(20);
+	s1.insert(30);
+	s1.insert(30);
+
+	printSet(s1);
+
+	set<int>s2(s1);
+	printSet(s2);
+
+	set<int>s3;
+	s3 = s2;
+	printSet(s3);
+
+}
+void test01(){
+	set<int>s1;
+	s1.insert(10);
+	s1.insert(70);
+	s1.insert(30);
+	s1.insert(40);
+
+	printSet(s1);
+	if (s1.empty()){
+		cout << "s1为空" << endl;
+	}
+	else{
+		cout << "s1不为空： " <<endl;
+		cout << "s1的大小为： " << s1.size() << endl;
+	}
+
+	set<int>s2;
+	s2.insert(100);
+	s2.insert(700);
+	s2.insert(300);
+	s2.insert(400);
+	cout << "交换前：  " << endl;
+	printSet(s1);
+	printSet(s2);
+
+	s1.swap(s2);
+	cout << "交换后：  " << endl;
+	printSet(s1);
+	printSet(s2);
+}
+void test01(){
+	set<int>s1;
+	s1.insert(10);
+	s1.insert(20);
+	s1.insert(30);
+	s1.insert(40);
+	printSet(s1);
+
+	s1.erase(s1.begin());
+	printSet(s1);
+
+	s1.erase(30);
+	printSet(s1);
+
+	s1.clear();
+	printSet(s1);
+
+}
+
+int main(){
+	test01();
+	
+	
+}
